@@ -19,7 +19,7 @@ with(targetDates, lines(targetDates$Sub_metering_3, col="blue"))
 legend("topright", col = c("black", "red", "blue"), pch=c(NA, NA, NA), lwd=1, lty=c(1,1,1), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 # Cannot figure out how to elegantly include "Sat" w/o BS hacks such as this.  Forum suggestions
-# didn't help either.  These R guys need to take a lesson and make it easy to plot like in Python!
+# didn't help either.
 firstFriday = min(which(targetDates$Weekday == "Fri"))
 lastFriday = max(which(targetDates$Weekday == "Fri"))
 axis(1, labels=c("Thur", "Fri", "Sat"), at=c(0,firstFriday,lastFriday))

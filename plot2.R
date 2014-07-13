@@ -10,7 +10,7 @@ targetDates[,Weekday := weekdays(Date, abbreviate=TRUE)]
 plot(targetDates$Global_active_power, type="l", xaxt="n", xlab="", ylab="Global Active Power (kilowatts)")
 
 # Cannot figure out how to elegantly include "Sat" w/o BS hacks such as this.  Forum suggestions
-# didn't help either.  These R guys need to take a lesson and make it easy to plot like in Python!
+# didn't help either.
 firstFriday = min(which(targetDates$Weekday == "Fri"))
 lastFriday = max(which(targetDates$Weekday == "Fri"))
 axis(1, labels=c("Thur", "Fri", "Sat"), at=c(0,firstFriday,lastFriday))
