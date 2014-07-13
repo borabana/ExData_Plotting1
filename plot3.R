@@ -6,6 +6,8 @@ powerConsumption <- loadPowerConsumptionData()
 targetDates <- powerConsumption[Date %in% c(as.Date("2007-02-01"), as.Date("2007-02-02")),]
 targetDates[,Weekday := weekdays(Date, abbreviate=TRUE)]
 
+png("plot3.png")
+
 # Generate the plot of the sub meterings and save it to a .png as well.  Remeber to set ylim to be
 # the max of all the y values in the subplots.
 maxY = max(c(targetDates$Sub_metering_1,targetDates$Sub_metering_2,targetDates$Sub_metering_3))
@@ -22,5 +24,5 @@ firstFriday = min(which(targetDates$Weekday == "Fri"))
 lastFriday = max(which(targetDates$Weekday == "Fri"))
 axis(1, labels=c("Thur", "Fri", "Sat"), at=c(0,firstFriday,lastFriday))
 
-dev.copy(png, file = "plot3.png")
+#dev.copy(png, file = "plot3.png")
 dev.off()
